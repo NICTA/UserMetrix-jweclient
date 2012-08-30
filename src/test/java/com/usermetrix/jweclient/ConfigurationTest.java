@@ -1,6 +1,6 @@
 /*
  * ConfigurationTest.java
- * UserMetrix-grailsclient
+ * UserMetrix-jweclient
  *
  * Copyright (c) 2012 UserMetrix Pty Ltd. All rights reserved.
  *

@@ -1,6 +1,6 @@
 /*
- * UserMetrixTest.java
- * UserMetrix-jclient
+ * UMLoggerTest.java
+ * UserMetrix-jweclient
  *
  * Copyright (c) 2011 UserMetrix Pty Ltd. All rights reserved.
  *

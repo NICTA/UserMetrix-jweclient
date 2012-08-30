@@ -1,6 +1,6 @@
 /*
  * UMSessionListener.java
- * UserMetrix-grailsclient
+ * UserMetrix-jweclient
  *
  * Copyright (c) 2012 UserMetrix Pty Ltd. All rights reserved.
  *
@@ -34,7 +34,7 @@ import javax.servlet.http.HttpSessionListener;
  * UserMetrix log to the central server.
  */
 public class UMSessionListener implements HttpSessionListener {
-	
+
 	public void sessionCreated(HttpSessionEvent event) {
 		// Nothing to do.
 	}

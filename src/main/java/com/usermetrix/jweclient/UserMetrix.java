@@ -1,6 +1,6 @@
 /*
  * UserMetrix.java
- * UserMetrix-grailsclient
+ * UserMetrix-jweclient
  *
  * Copyright (c) 2012 UserMetrix Pty Ltd. All rights reserved.
  *
@@ -71,11 +71,11 @@ public class UserMetrix {
 	}
 
 	/**
-	 * @param id
+	 * @param id The UUID of the logger you wish to fetch.
 	 *
 	 * @return The logging instance for the supplied session ID.
 	 *
-	 * @throws Exception If unable to get the logging instance for the supplied
+	 * @throws Exception If unable to get the logging instance for the supplied UUID
 	 */
 	private static UMLogger getLogger(String id) throws Exception {
 		UMLogger result = currentLoggers.get(id);

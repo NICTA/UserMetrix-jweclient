@@ -1,6 +1,6 @@
 /*
  * UMLogger.java
- * UserMetrix-grailsclient
+ * UserMetrix-jweclient
  *
  * Copyright (c) 2012 UserMetrix Pty Ltd. All rights reserved.
  *
@@ -93,6 +93,11 @@ public final class UMLogger {
     /** Start time in milliseconds. */
     private long startTime;
     
+    /**
+     * 
+     * @param id
+     * @throws Exception
+     */
     protected UMLogger(String id) throws Exception {
     	logWriter = null;
     	logFile = null;
