@@ -1,5 +1,5 @@
 /*
- * UserMetrixTest.java
+ * TestConstants.java
  * UserMetrix-jweclient
  *
  * Copyright (c) 2012 UserMetrix Pty Ltd. All rights reserved.
@@ -25,43 +25,14 @@
  */
 package com.usermetrix.jweclient;
 
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.Assert.assertFalse;
-
 import java.io.File;
 
-import org.testng.annotations.Test;
+public class TestConstants {
 
-public final class UserMetrixTest {
-
-	@Test
-	public void testInit() throws Exception {
-		UserMetrix.initalize(TestConstants.UUID1);
-		File log = TestConstants.logFileFor(TestConstants.UUID1);
-    	assertTrue(log.exists());    	
-    	UserMetrix.shutdown(TestConstants.UUID1);
-    	assertFalse(log.exists());
-
-		UserMetrix.initalize(TestConstants.UUID2);
-		log = TestConstants.logFileFor(TestConstants.UUID2);
-    	assertTrue(log.exists());
-    	UserMetrix.shutdown(TestConstants.UUID2);
-    	assertFalse(log.exists());
-	}
-
-	@Test
-	public void testShutdownAll() throws Exception {
-		UserMetrix.initalize(TestConstants.UUID1);
-		UserMetrix.initalize(TestConstants.UUID2);
-
-		UserMetrix.shutdownAll();
-		assertFalse(TestConstants.logFileFor(TestConstants.UUID1).exists());
-    	assertFalse(TestConstants.logFileFor(TestConstants.UUID2).exists());
-	}
-
-    @Test
-	public void rawStartUp() throws Exception {
-		UserMetrix.event(TestConstants.UUID1, UserMetrixTest.class, "rawStartUp");
-		assertTrue(TestConstants.logFileFor(TestConstants.UUID1).exists());
+	public final static String UUID1 = "19C1AA26B8064108956DBB13D4D626F1";
+	public final static String UUID2 = "19C1AA26B8064108956DBB13D4D626F2";
+	
+	public static final File logFileFor(String uuid) {
+		return new File("um" + uuid + ".log");
 	}
 }
