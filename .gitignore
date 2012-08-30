@@ -1,0 +1,7 @@
+.DS_Store
+target
+usermetrix.id
+.project
+.settings
+.classpath
+*.log
