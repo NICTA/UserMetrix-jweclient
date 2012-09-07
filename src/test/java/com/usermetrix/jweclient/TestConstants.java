@@ -31,8 +31,8 @@ public class TestConstants {
 
 	public final static String UUID1 = "19C1AA26B8064108956DBB13D4D626F1";
 	public final static String UUID2 = "19C1AA26B8064108956DBB13D4D626F2";
-	
+
 	public static final File logFileFor(String uuid) {
-		return new File("um" + uuid + ".log");
+		return new File("um" + UMLogger.hyphateUUID(uuid) + ".log");
 	}
 }

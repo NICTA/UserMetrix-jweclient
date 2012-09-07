@@ -114,7 +114,7 @@ public final class UMLogger {
      *
      * @return A UUID with 4 hypens within it: 8-4-4-4-12.
      */
-    public String hyphateUUID(String uuid) {
+    public static String hyphateUUID(String uuid) {
 		String result = uuid.substring(0, 8) + "-" + uuid.substring(8, 12) + "-" + 
 						uuid.substring(12, 16) + "-" + uuid.substring(16, 20) + "-" +
 						uuid.substring(20, 32);			
@@ -138,7 +138,7 @@ public final class UMLogger {
 
         clientID = hyphateUUID(uuid);
         setLogDestination(new File(configuration.getTmpDirectory()
-                                   + "um" + uuid + ".log"));
+                                   + "um" + clientID + ".log"));
         startLog();
     }
 
@@ -367,7 +367,7 @@ public final class UMLogger {
 
         try {
             // Send data
-            URL url = new URL("http://usermetrix-dev-cedar.herokuapp.com//projects/" + config.getProjectID() + "/log");
+            URL url = new URL("http://usermetrix.com/projects/" + config.getProjectID() + "/log");
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + BOUNDARY);
@@ -379,10 +379,9 @@ public final class UMLogger {
                     + " filename=\"" + "usermetrix.log" +"\"" + LINE_END);
             wr.writeBytes(LINE_END);
 
-
             // Read the log and append it as an attachment to the POST request.
             FileInputStream fileInputStream = new FileInputStream(new File(config.getTmpDirectory()
-                                                                           + "usermetrix.log"));
+            															   + "um" + clientID + ".log"));
             int bytesAvailable = fileInputStream.available();
             int bufferSize = Math.min(bytesAvailable, BUFFER_SIZE);
             byte[] buffer = new byte[bufferSize];

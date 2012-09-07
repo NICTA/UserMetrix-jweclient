@@ -105,4 +105,5 @@ public final class UMLoggerTest {
     	assertEquals("class com.usermetrix.jweclient.UMLogger", logItem.get("source"));
     	assertEquals("null", logItem.get("message"));
     }
+
 }

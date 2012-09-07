@@ -86,11 +86,11 @@ public class UserMetrix {
 		return result;
 	}
 
-	public static void shutdown(String id) {
-		UMLogger result = currentLoggers.get(id);
+	public static void shutdown(String uuid) {
+		UMLogger result = currentLoggers.get(uuid);
 		if (result != null) {
 			result.shutdown();
-			currentLoggers.remove(id);
+			currentLoggers.remove(uuid);
 		}		
 	}
 
