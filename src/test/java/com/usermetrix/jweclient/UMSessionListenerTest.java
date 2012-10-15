@@ -127,7 +127,7 @@ public class UMSessionListenerTest {
 	@Test
 	public void testSessionExpire() throws Exception {
 		UMSessionListener listener = new UMSessionListener();	
-		UserMetrix.initalize(TestConstants.UUID1);
+		UserMetrix.initialize(TestConstants.UUID1);
 		assertTrue(TestConstants.logFileFor(TestConstants.UUID1).exists());
 
 		listener.sessionDestroyed(new HttpSessionEvent(fooSession));

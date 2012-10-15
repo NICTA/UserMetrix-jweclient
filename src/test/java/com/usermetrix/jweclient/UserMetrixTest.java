@@ -36,13 +36,13 @@ public final class UserMetrixTest {
 
 	@Test
 	public void testInit() throws Exception {
-		UserMetrix.initalize(TestConstants.UUID1);
+		UserMetrix.initialize(TestConstants.UUID1);
 		File log = TestConstants.logFileFor(TestConstants.UUID1);
     	assertTrue(log.exists());    	
     	UserMetrix.shutdown(TestConstants.UUID1);
     	assertFalse(log.exists());
 
-		UserMetrix.initalize(TestConstants.UUID2);
+		UserMetrix.initialize(TestConstants.UUID2);
 		log = TestConstants.logFileFor(TestConstants.UUID2);
     	assertTrue(log.exists());
     	UserMetrix.shutdown(TestConstants.UUID2);
@@ -51,8 +51,8 @@ public final class UserMetrixTest {
 
 	@Test
 	public void testShutdownAll() throws Exception {
-		UserMetrix.initalize(TestConstants.UUID1);
-		UserMetrix.initalize(TestConstants.UUID2);
+		UserMetrix.initialize(TestConstants.UUID1);
+		UserMetrix.initialize(TestConstants.UUID2);
 
 		UserMetrix.shutdownAll();
 		assertFalse(TestConstants.logFileFor(TestConstants.UUID1).exists());

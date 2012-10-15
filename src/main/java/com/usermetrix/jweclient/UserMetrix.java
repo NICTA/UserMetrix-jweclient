@@ -29,12 +29,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserMetrix {
+    // All the loggers that UserMetrix is currently managing.
 	static Map <String, UMLogger> currentLoggers = new HashMap<String, UMLogger>();
-	
+
+	/**
+	 * Private constructor, This class holds static methods for initializing and accessing
+	 * loggers on a per user basis. 
+	 */
 	private UserMetrix() {
 	}
-
-	public static UMLogger initalize(String id) throws Exception {
+	
+	public static UMLogger initialize(String id) throws Exception {
 		UMLogger result = currentLoggers.get(id);
 		if (result != null) {
 			result.shutdown();
@@ -80,7 +85,7 @@ public class UserMetrix {
 	private static UMLogger getLogger(String id) throws Exception {
 		UMLogger result = currentLoggers.get(id);
 		if (result == null) {
-			result = initalize(id);
+			result = initialize(id);
 		}
 
 		return result;
