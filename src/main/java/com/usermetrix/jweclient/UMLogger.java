@@ -103,7 +103,7 @@ public final class UMLogger {
     	logFile = null;
     	config = new Configuration();
     	clock = Calendar.getInstance();
-    	this.initalise(config, id);
+    	this.initialize(config, id);
     }
     
     /**
@@ -129,7 +129,7 @@ public final class UMLogger {
      * @param configuration The configuration client to use for this UserMetrix
      * client.
      */
-    public void initalise(final Configuration configuration, final String uuid) throws Exception {     
+    public void initialize(final Configuration configuration, final String uuid) throws Exception {
         // Check if the temp directory exists - if not, create it.
         File tmpDirectory = new File(configuration.getTmpDirectory());
         if (!tmpDirectory.exists()) {

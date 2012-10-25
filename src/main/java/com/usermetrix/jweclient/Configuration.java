@@ -25,6 +25,7 @@
  */
 package com.usermetrix.jweclient;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
@@ -105,7 +106,11 @@ public final class Configuration {
      * usermetrix.id files too.
      */
     public String getTmpDirectory() {
-        return tmpDirectory;
+        if (tmpDirectory.toString().equals("")) {
+            return tmpDirectory.toString();
+        } else {
+            return tmpDirectory.toString() + File.separator;
+        }
     }
 
     /**

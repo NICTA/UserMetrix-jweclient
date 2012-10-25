@@ -46,7 +46,7 @@ public final class UMLoggerTest {
     public void testCreation() throws Exception {
     	UMLogger logger = new UMLogger(TestConstants.UUID1);    	
 
-    	File log = TestConstants.logFileFor(TestConstants.UUID1);
+    	File log = TestConstants.logFileFor(null, TestConstants.UUID1);
     	assertTrue(log.exists());
 
     	Yaml yaml = new Yaml();
@@ -73,7 +73,7 @@ public final class UMLoggerTest {
     	logger.error("testError", new Exception("foo"), UMLogger.class);
     	logger.error(new Exception("foo"), UMLogger.class);
 
-    	File log = TestConstants.logFileFor(TestConstants.UUID1);
+    	File log = TestConstants.logFileFor(null, TestConstants.UUID1);
     	Yaml yaml = new Yaml();
     	InputStream in = new FileInputStream(log);
 

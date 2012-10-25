@@ -25,9 +25,12 @@
  */
 package com.usermetrix.jweclient;
 
+import java.io.File;
+
 import org.testng.annotations.Test;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 
 import com.usermetrix.jweclient.Configuration;
 
@@ -39,5 +42,30 @@ public class ConfigurationTest {
         assertEquals(c.getProjectID(), 1);
         assertEquals(c.getTmpDirectory(), "");
         assertFalse(c.canSendLogs());
-    }    
+    }
+
+	@Test
+    public void testSetTmpPath() throws Exception {
+        // Make sure that the ID file does not exist before the test.
+        File idFile = TestConstants.logFileFor("target", TestConstants.UUID1);
+        idFile.delete();
+        assertFalse(idFile.exists());
+
+        Configuration c = new Configuration();
+        c.setCanSendLogs(false);
+        c.setTmpDirectory("target/");
+        UMLogger l = new UMLogger(TestConstants.UUID1);
+        l.initialize(c, TestConstants.UUID1);
+
+        assertTrue(idFile.exists());
+        idFile.delete();
+        assertFalse(idFile.exists());
+
+        l.shutdown();
+
+        c.setTmpDirectory("target");
+        l.initialize(c, TestConstants.UUID1);
+        assertTrue(idFile.exists());
+        l.shutdown();
+    }
 }
